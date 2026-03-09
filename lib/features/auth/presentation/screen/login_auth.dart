@@ -1,3 +1,5 @@
+import 'package:commerce/features/auth/presentation/screen/register_auth.dart';
+import 'package:commerce/features/catalog/presentation/screen/product_view.dart';
 import 'package:flutter/material.dart';
 
 class LoginAuth extends StatefulWidget {
@@ -14,6 +16,7 @@ class _LoginAuth extends State<LoginAuth> {
       body: Padding(
         padding: EdgeInsets.all(15.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text("Login", style: TextStyle(fontSize: 40, color: Colors.blue)),
 
@@ -41,9 +44,14 @@ class _LoginAuth extends State<LoginAuth> {
                 ),
               ),
             ),
-
+            SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ProductView()),
+                );
+              },
               child: Text(
                 "Valider",
                 style: TextStyle(fontSize: 15, color: Colors.blue),
@@ -51,6 +59,24 @@ class _LoginAuth extends State<LoginAuth> {
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(double.infinity, 50),
               ),
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("deja connecté?"),
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const RegisterAuth(),
+                      ),
+                    );
+                  },
+                  child: Text("inscrir"),
+                ),
+              ],
             ),
           ],
         ),

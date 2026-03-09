@@ -1,3 +1,4 @@
+import 'package:commerce/features/auth/presentation/screen/login_auth.dart';
 import 'package:flutter/material.dart';
 
 class RegisterAuth extends StatelessWidget {
@@ -65,6 +66,23 @@ class RegisterAuth extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(double.infinity, 50),
               ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("deja inscrit?"),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LoginAuth(),
+                      ),
+                    );
+                  },
+                  child: Text("Connectez-vous"),
+                ),
+              ],
             ),
           ],
         ),
